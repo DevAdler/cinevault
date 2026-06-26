@@ -1,19 +1,33 @@
 function Navbar() {
   return (
     <header className="navbar">
-      <nav className="navbar__content">
+      <div className="navbar__content">
         <h2 className="navbar__logo">CineVault</h2>
 
-        <ul className="navbar__links">
-          <li>Home</li>
-          <li>Movies</li>
-          <li>Search</li>
-        </ul>
+        <nav className="navbar__navigation" aria-label="Main navigation">
+          <ul className="navbar__links">
+            <li>
+              <a href="#">Home</a>
+            </li>
 
-        <button className="btn btn--primary navbar__button">Sign In</button>
-      </nav>
+            <li>
+              <a href="#">Movies</a>
+            </li>
+
+            <li>
+              <a href="#">Search</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="navbar__actions">
+          <button className="btn btn--primary" type="button">
+            Sign In
+          </button>
+        </div>
+      </div>
     </header>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -2,11 +2,14 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 1rem;
-  background: rgba(5, 5, 5, 0.9);
+  padding: 0.85rem 1rem;
+  background: rgba(5, 5, 5, 0.82);
+  backdrop-filter: blur(12px);
 }
 
 .navbar__content {
+  width: min(100%, 1400px);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,6 +19,8 @@
 .navbar__logo {
   color: #e50914;
   font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 .navbar__links {
@@ -23,13 +28,30 @@
   list-style: none;
 }
 
-.navbar__button {
-  padding: 0.45rem 0.9rem;
+.navbar__links a {
+  color: #e5e5e5;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus {
+  color: #ffffff;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
+  .navbar {
+    padding: 0.9rem 2rem;
+  }
+
   .navbar__links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 }

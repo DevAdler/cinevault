@@ -1,22 +1,51 @@
+import { useEffect, useState } from 'react'
 import MovieCard from './MovieCard'
+import { fetchMovies, getPosterUrl } from '../services/tmdbApi'
 
-const movies = [
-  { id: 1, title: 'Interstellar', year: 2014 },
-  { id: 2, title: 'Inception', year: 2010 },
-  { id: 3, title: 'The Dark Knight', year: 2008 },
-  { id: 4, title: 'Dune', year: 2021 },
-]
+function MovieRow({ title, endpoint }) {
+  const [movies, setMovies] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-function MovieRow({ title }) {
+  useEffect(() => {
+    async function loadMovies() {
+      try {
+        setIsLoading(true)
+        setError(null)
+
+        const movieData = await fetchMovies(endpoint)
+        setMovies(movieData)
+      } catch (error) {
+        setError(error.message)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadMovies()
+  }, [endpoint])
+
   return (
     <section className="movie-row">
-      <h2>{title}</h2>
+      <h2 className="movie-row__title">{title}</h2>
 
-      <div className="movie-row__list">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} title={movie.title} year={movie.year} />
-        ))}
-      </div>
+      {isLoading && <p>Loading movies...</p>}
+
+      {error && <p>{error}</p>}
+
+      {!isLoading && !error && (
+        <div className="movie-row__list">
+          {movies.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              title={movie.title}
+              year={movie.release_date?.slice(0, 4)}
+              rating={`${movie.vote_average.toFixed(1)} ★`}
+              imageUrl={getPosterUrl(movie.poster_path)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }

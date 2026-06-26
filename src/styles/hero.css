@@ -1,33 +1,56 @@
 .hero {
-  min-height: 60vh;
+  position: relative;
+  min-height: calc(82vh - 72px);
   display: flex;
-  align-items: center;
-  padding: 4rem 1rem;
+  align-items: flex-end;
+  padding: 8rem 1rem 4rem;
   background:
-    linear-gradient(to right, #050505 20%, rgba(5, 5, 5, 0.7)),
-    linear-gradient(to top, #050505 0%, transparent 40%);
+    linear-gradient(to top, #050505 0%, rgba(5, 5, 5, 0.2) 50%),
+    linear-gradient(to right, rgba(5, 5, 5, 0.95), rgba(5, 5, 5, 0.2)),
+    url("https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .hero__content {
-  max-width: 650px;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
 }
 
 .hero__eyebrow {
-  margin-bottom: 0.75rem;
   color: #e50914;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
 }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  line-height: 1;
+.hero__title {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  margin-bottom: 1rem;
 }
 
-.hero__text {
-  margin-top: 1rem;
-  max-width: 520px;
-  color: #d1d1d1;
-  font-size: 1.05rem;
+.hero__description {
+  max-width: 560px;
+  color: #d6d6d6;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 82vh;
+    padding: 8rem 3rem 4rem;
+    background-position: center top;
+  }
 }
