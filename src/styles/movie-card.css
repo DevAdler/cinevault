@@ -1,0 +1,7 @@
+.movie-card {
+  min-width: 160px;
+  min-height: 220px;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #181818;
+}

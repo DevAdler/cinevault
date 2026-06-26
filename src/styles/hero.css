@@ -1,0 +1,33 @@
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 1rem;
+  background:
+    linear-gradient(to right, #050505 20%, rgba(5, 5, 5, 0.7)),
+    linear-gradient(to top, #050505 0%, transparent 40%);
+}
+
+.hero__content {
+  max-width: 650px;
+}
+
+.hero__eyebrow {
+  margin-bottom: 0.75rem;
+  color: #e50914;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1;
+}
+
+.hero__text {
+  margin-top: 1rem;
+  max-width: 520px;
+  color: #d1d1d1;
+  font-size: 1.05rem;
+}

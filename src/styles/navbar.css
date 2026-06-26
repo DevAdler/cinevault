@@ -1,0 +1,35 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1rem;
+  background: rgba(5, 5, 5, 0.9);
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar__logo {
+  color: #e50914;
+  font-size: 1.5rem;
+}
+
+.navbar__links {
+  display: none;
+  list-style: none;
+}
+
+.navbar__button {
+  padding: 0.45rem 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .navbar__links {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
